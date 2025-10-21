@@ -13,6 +13,27 @@
 		<button onclick="calculateFuel()">Розрахувати пальне</button>
 		<div id="result">Тут з'явиться результат</div>
 	</div>
+	<script>
+    function calculateFuel() {
+        let shipWeight = Number(document.getElementById("shipweight").value);
+        let speed = Number(document.getElementById("speed").value);
+
+        if (shipWeight <= 0 || speed <= 0) {
+            document.getElementById("result").innerText = "Корабель не злетить! Перевір ваги або швидкості!";
+            return;
+        }
+
+        let fuel = 10 * shipWeight * speed;
+
+        if (fuel > 590) {
+            document.getElementById("result").innerText = 
+                "Торого до поручу на Мріс! Потрібно " + fuel + " літрів пального.";
+        } else {
+            document.getElementById("result").innerText = 
+                "Мріс, замало пального (" + fuel + " літрів). Додай ще, щоб досягти Марсу!";
+        }
+    }
+</script>
 
 </body>
 </html>
