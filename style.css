@@ -47,12 +47,13 @@ input{
 button{
 	padding: 10px 20px;
 	background: #ff4500;
-	color: white;
+	color: rgb(250, 233, 213);
 	border: none;
 	border-radius: 5px;
 	font-size: 1.2em;
 	cursor: pointer;
 	transition: background 0.3s;
+	margin-bottom: 10px;
 }
 
 button:hover{

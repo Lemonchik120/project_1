@@ -6,15 +6,17 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-	<h1>Кoсмічний заправник для Марса</h1>
+	<h1>Кoсмічний заправник для корабля</h1>
 	<div class="container">
 		<input type="number" id="shipWeight" placeholder="Вага корабля (т.)" min="0">
 		<input type="number" id="speed" placeholder="Швидкість (км/с)" min="0">
-		<button onclick="calculateFuel()">Розрахувати пальне</button>
+		<button onclick="calculateFuel('Mars')">Розрахувати пальне для Марса</button>
+        <button onclick="calculateFuel('Jupiter')">Розрахувати пальне для Юпітера</button>
 		<div id="result">Тут з'явиться результат</div>
 	</div>
 	<script>
-    function calculateFuel() {
+    function calculateFuel(planet) {
+        console.log(planet);
         let shipWeight = Number(document.getElementById("shipWeight").value);
         let speed = Number(document.getElementById("speed").value);
 
@@ -23,14 +25,29 @@
             return;
         }
 
-        let fuel = 10 * shipWeight * speed;
+        if (planet == "Mars"){
+            let fuel = 10 * shipWeight * speed;
 
-        if (fuel > 590) {
-            document.getElementById("result").innerText = 
-                "Торого до поручу на Марс! Потрібно " + fuel + " літрів пального.";
-        } else {
-            document.getElementById("result").innerText = 
-                "Замало пального (" + fuel + " літрів). Додай ще, щоб досягти Марсу!";
+            if (fuel > 590) {
+                document.getElementById("result").innerText = 
+                    " Для польоту на Марс! Потрібно " + fuel + " літрів пального.";
+            } else {
+                document.getElementById("result").innerText = 
+                    "Замало пального (" + fuel + " літрів). Додай ще, щоб досягти Марсу!";
+            }
+        }
+
+
+        if (planet == "Jupiter"){
+            let fuel = 100 * shipWeight * speed;
+
+            if (fuel > 890) {
+                document.getElementById("result").innerText = 
+                    "Для польоту на Юпітер! Потрібно " + fuel + " літрів пального.";
+            } else {
+                document.getElementById("result").innerText = 
+                    "Замало пального (" + fuel + " літрів). Додай ще, щоб досягти Юпітера!";
+            }
         }
     }
 </script>
