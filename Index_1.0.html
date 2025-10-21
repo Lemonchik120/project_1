@@ -8,14 +8,14 @@
 <body>
 	<h1>Кoсмічний заправник для Марса</h1>
 	<div class="container">
-		<input type="number" id="shipWeigh" placeholder="Вага корабля (т.)" min="0">
+		<input type="number" id="shipWeight" placeholder="Вага корабля (т.)" min="0">
 		<input type="number" id="speed" placeholder="Швидкість (км/с)" min="0">
 		<button onclick="calculateFuel()">Розрахувати пальне</button>
 		<div id="result">Тут з'явиться результат</div>
 	</div>
 	<script>
     function calculateFuel() {
-        let shipWeight = Number(document.getElementById("shipweight").value);
+        let shipWeight = Number(document.getElementById("shipWeight").value);
         let speed = Number(document.getElementById("speed").value);
 
         if (shipWeight <= 0 || speed <= 0) {
@@ -27,10 +27,10 @@
 
         if (fuel > 590) {
             document.getElementById("result").innerText = 
-                "Торого до поручу на Мріс! Потрібно " + fuel + " літрів пального.";
+                "Торого до поручу на Марс! Потрібно " + fuel + " літрів пального.";
         } else {
             document.getElementById("result").innerText = 
-                "Мріс, замало пального (" + fuel + " літрів). Додай ще, щоб досягти Марсу!";
+                "Замало пального (" + fuel + " літрів). Додай ще, щоб досягти Марсу!";
         }
     }
 </script>
