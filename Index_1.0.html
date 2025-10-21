@@ -19,35 +19,34 @@
         console.log(planet);
         let shipWeight = Number(document.getElementById("shipWeight").value);
         let speed = Number(document.getElementById("speed").value);
-
+        let k = 10;
+        let edge = 590;
+        let planetName = "";
         if (shipWeight <= 0 || speed <= 0) {
             document.getElementById("result").innerText = "Корабель не злетить! Перевір ваги або швидкості!";
             return;
         }
-
+        
         if (planet == "Mars"){
-            let fuel = 10 * shipWeight * speed;
-
-            if (fuel > 590) {
-                document.getElementById("result").innerText = 
-                    " Для польоту на Марс! Потрібно " + fuel + " літрів пального.";
-            } else {
-                document.getElementById("result").innerText = 
-                    "Замало пального (" + fuel + " літрів). Додай ще, щоб досягти Марсу!";
-            }
+            k = 10;
+            edge = 590;
+            planetName = "Марс";
         }
 
+        if(planet == "Jupiter"){
+            k = 100;
+            edge = 890;
+            planetName ="Юпітер";
+        }
 
-        if (planet == "Jupiter"){
-            let fuel = 100 * shipWeight * speed;
+        let fuel = k * shipWeight * speed;
 
-            if (fuel > 890) {
-                document.getElementById("result").innerText = 
-                    "Для польоту на Юпітер! Потрібно " + fuel + " літрів пального.";
-            } else {
-                document.getElementById("result").innerText = 
-                    "Замало пального (" + fuel + " літрів). Додай ще, щоб досягти Юпітера!";
-            }
+        if (fuel > edge) {
+            document.getElementById("result").innerText = 
+                "Торого до поручу на"+planetName+"! Потрібно " + fuel + " літрів пального.";
+        } else {
+            document.getElementById("result").innerText = 
+                "Замало пального (" + fuel + " літрів). Додай ще, щоб досягти "+planetName+"у!";
         }
     }
 </script>
