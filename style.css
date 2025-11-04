@@ -68,3 +68,8 @@ button:hover{
   font-size: 1.1em;
   min-height: 50px;
 }
+
+
+#planetimg{
+	width: -webkit-fill-available;
+}

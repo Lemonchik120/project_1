@@ -12,11 +12,14 @@
 		<input type="number" id="speed" placeholder="Швидкість (км/с)" min="0">
 		<button onclick="calculateFuel('Mars')">Розрахувати пальне для Марса</button>
         <button onclick="calculateFuel('Jupiter')">Розрахувати пальне для Юпітера</button>
+        <button onclick="calculateFuel('Moon')">Розрахувати пальне для Місяця</button>
 		<div id="result">Тут з'явиться результат</div>
+        <img src="mars.png" alt="planet" id="planetimg">
 	</div>
 	<script>
     function calculateFuel(planet) {
         console.log(planet);
+        let img = document.getElementById("planetimg");
         let shipWeight = Number(document.getElementById("shipWeight").value);
         let speed = Number(document.getElementById("speed").value);
         let k = 10;
@@ -31,19 +34,29 @@
             k = 10;
             edge = 590;
             planetName = "Марс";
+            img.src = "mars.png";
+
         }
 
         if(planet == "Jupiter"){
             k = 100;
             edge = 890;
             planetName ="Юпітер";
+            img.src = "jupiter.png";
+        }
+
+         if (planet == "Moon"){
+            k = 5;
+            edge = 250;
+            planetName = "Місяць";
+            img.src = "moon.jpg";
         }
 
         let fuel = k * shipWeight * speed;
 
         if (fuel > edge) {
             document.getElementById("result").innerText = 
-                "Торого до поручу на"+planetName+"! Потрібно " + fuel + " літрів пального.";
+                "Летимо на "+planetName+"! Потрібно " + fuel + " літрів пального.";
         } else {
             document.getElementById("result").innerText = 
                 "Замало пального (" + fuel + " літрів). Додай ще, щоб досягти "+planetName+"у!";
