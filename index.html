@@ -1,21 +1,26 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-	<meta charset="utf-8">
-	<title>Космічний заправник для Марса</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
+  <meta charset="utf-8">
+  <title>Космічний заправник для Марса</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-	<h1>Кoсмічний заправник для корабля</h1>
-	<div class="container">
-		<input type="number" id="shipWeight" placeholder="Вага корабля (т.)" min="0">
-		<input type="number" id="speed" placeholder="Швидкість (км/с)" min="0">
-		<button onclick="calculateFuel('Mars')">Розрахувати пальне для Марса</button>
-        <button onclick="calculateFuel('Jupiter')">Розрахувати пальне для Юпітера</button>
-        <button onclick="calculateFuel('Moon')">Розрахувати пальне для Місяця</button>
-		<div id="result">Тут з'явиться результат</div>
-        <img src="mars.png" alt="planet" id="planetimg">
-	</div>
+
+  <h1>Космічний заправник для корабля</h1>
+
+  <div class="container">
+    <input type="number" id="shipWeight" placeholder="Вага корабля (т.)" min="0">
+    <input type="number" id="speed" placeholder="Швидкість (км/с)" min="0">
+
+    <button onclick="calculateFuel('Mars')">Для Марса</button>
+    <button onclick="calculateFuel('Jupiter')">Для Юпітера</button>
+    <button onclick="calculateFuel('Moon')">Для Місяця</button>
+
+    <div id="result">Тут з'явиться результат</div>
+    <img src="mars.png" alt="planet" id="planetimg">
+  </div>
 	<script>
     function calculateFuel(planet) {
         console.log(planet);
